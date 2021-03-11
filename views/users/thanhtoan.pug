@@ -1,0 +1,119 @@
+extends ../layouts/commom
+
+block content
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        .container-fluid
+            nav(aria-label='breadcrumb')
+                ol.breadcrumb
+                    li.breadcrumb-item
+                        a(href='/')
+                            i.fas.fa-home
+                            |   Home
+                    li.breadcrumb-item
+                        a(href='/thanhtoan') Thanh to&aacute;n
+    .row
+        .col-md-8.mb-4
+            // Section: Checkout form
+            section.shadow-5.p-4
+                form
+                    // 2 column grid layout with text inputs for the first and last names
+                    .row.mb-4
+                        .col
+                            .form-outline
+                                input#form6Example1.form-control(type='text', style="\
+                                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==');\
+                                background-repeat: no-repeat;\
+                                background-attachment: scroll;\
+                                background-size: 16px 18px;\
+                                background-position: 98% 50%;\
+                                ")
+                                label.form-label(for='form6Example1' style='margin-left: 0px;') Họ Tên
+                                .form-notch
+                                    .form-notch-leading(style='width: 9px;')
+                                    .form-notch-middle(style='width: 68.8px;')
+                                    .form-notch-trailing
+                                .form-notch
+                                    .form-notch-leading(style='width: 9px;')
+                                    .form-notch-middle(style='width: 68.8px;')
+                                    .form-notch-trailing
+                    // Text input
+                    // Text input
+                    .form-outline.mb-4
+                        input#form6Example4.form-control(type='text')
+                        label.form-label(for='form6Example4' style='margin-left: 0px;') Địa Chỉ
+                        .form-notch
+                            .form-notch-leading(style='width: 9px;')
+                            .form-notch-middle(style='width: 55.2px;')
+                            .form-notch-trailing
+                        .form-notch
+                            .form-notch-leading(style='width: 9px;')
+                            .form-notch-middle(style='width: 55.2px;')
+                            .form-notch-trailing
+                    // Email input
+                    .form-outline.mb-4
+                        input#form6Example5.form-control(type='email')
+                        label.form-label(for='form6Example5' style='margin-left: 0px;') Tên Sản Phẩm
+                        .form-notch
+                            .form-notch-leading(style='width: 9px;')
+                            .form-notch-middle(style='width: 40px;')
+                            .form-notch-trailing
+                        .form-notch
+                            .form-notch-leading(style='width: 9px;')
+                            .form-notch-middle(style='width: 40px;')
+                            .form-notch-trailing
+                    // Number input
+                    .form-outline.mb-4
+                        input#form6Example6.form-control(type='number')
+                        label.form-label(for='form6Example6' style='margin-left: 0px;') S&#x1ED1; &dstrok;i&#x1EC7;n tho&#x1EA1;i
+                        .form-notch
+                            .form-notch-leading(style='width: 9px;')
+                            .form-notch-middle(style='width: 44.8px;')
+                            .form-notch-trailing
+                        .form-notch
+                            .form-notch-leading(style='width: 9px;')
+                            .form-notch-middle(style='width: 44px;')
+                            .form-notch-trailing
+                    // Message input
+                    .form-outline.mb-4
+                        textarea#form6Example7.form-control(rows='4')
+                        label.form-label(for='form6Example7' style='margin-left: 0px;') &Dstrok;&#x1ECB;a ch&#x1EC9; chi ti&#x1EBF;t
+                        .form-notch
+                            .form-notch-leading(style='width: 9px;')
+                            .form-notch-middle(style='width: 131.2px;')
+                            .form-notch-trailing
+                        .form-notch
+                            .form-notch-leading(style='width: 9px;')
+                            .form-notch-middle(style='width: 135.2px;')
+                            .form-notch-trailing
+                    // Checkbox
+                    .form-check.d-flex.justify-content-center.mb-4
+                        input#form6Example8.form-check-input.me-2(type='checkbox' value='' checked='')
+                        label.form-check-label(for='form6Example8')
+                            | X&aacute;c nh&#x1EAD;n &dstrok;&#x1A1;n h&agrave;ng
+                    // Submit button
+                    button.btn.btn-primary.btn-block.mb-4(type='submit')
+                        | Mua h&agrave;ng
+            // Section: Checkout form
+        .col-md-4.mb-4
+            // Section: Summary
+            section
+                button.btn.btn-success.btn-block.mb-4.ripple-surface(type='button')
+                    | H&oacute;a &Dstrok;&#x1A1;n
+                .card
+                    .card-header.bg-white.text-center.py-3
+                        h5.mb-0.fw-bold T&#x1ED5;ng s&#x1EA3;n ph&#x1EA9;m
+                    .card-body
+                        ul
+                            li
+                                strong Product 1: 
+                                | $100
+                            li
+                                strong Product 2: 
+                                | $50
+                            li
+                                strong Product 2: 
+                                | $49
+                    .card-footer.bg-white.d-flex.justify-content-between.py-3
+                        strong Total amount:
+                        strong $199
+            // Section: Summary

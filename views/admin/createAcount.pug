@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        title Document
+        // Font Awesome
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css' rel='stylesheet')
+        // Google Fonts
+        link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet')
+        // MDB
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.2.0/mdb.min.css' rel='stylesheet')
+
+    body
+        nav.navbar.navbar-expand-lg.navbar-light.bg-light
+            .container-fluid
+                nav(aria-label='breadcrumb')
+                ol.breadcrumb
+                    li.breadcrumb-item
+                    a(href='./index.pug') Home
+                    li.breadcrumb-item
+                    a(href='#') Library
+                    li.breadcrumb-item.active(aria-current='page')
+                    a(href='#') Data
+       
+        .container
+            form(method="POST")
+                .form-outline.mb-4
+                    input#form5Example1.form-control(type='text' name="email")
+                    label.form-label(for='form5Example1') Email
+                .form-outline.mb-4
+                    input#form5Example2.form-control(type='Age' name="password")
+                    label.form-label(for='form5Example2') Password
+
+                button.btn.btn-primary.btn-block.mb-4(type='submit') Submit
+        a(href="/admin/all-acount") view all Acount   
+    
+
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.2.0/mdb.min.js')
