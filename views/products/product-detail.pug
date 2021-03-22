@@ -1,0 +1,123 @@
+extends ../layouts/commom
+block head 
+    link(href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap' rel='stylesheet')
+    link(rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css')
+    link(rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css')
+    link(rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css')
+    link(rel='stylesheet' href='/css/style-product-detail.css')
+block content
+    body    
+        .container              
+            .heading-section
+                h2= productId.name                
+            .row
+                .col-md-6
+                    #slider.owl-carousel.product-slider
+                        .item
+                            img(src=productId.image)
+                        .item
+                            img(src="https://duongluxury.com/wp-content/uploads/2020/04/tui-xach-nam-louis-vuitton-hoa-tiet-caro-vien-ke-den-txlv20-1-650x650.jpg")
+                        .item
+                            img(src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw')
+                        .item
+                            img(src='https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg')
+
+                    #thumb.owl-carousel.product-thumb
+                        .item
+                            img(src=productId.image)
+                        .item
+                            img(src='https://duongluxury.com/wp-content/uploads/2020/04/tui-xach-nam-louis-vuitton-hoa-tiet-caro-vien-ke-den-txlv20-1-650x650.jpg')
+                        .item
+                            img(src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw')
+                        .item
+                            img(src='https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg')
+
+                .col-md-6
+                    .product-dtl
+                        .product-info
+                            .product-name= productId.name
+                            .reviews-counter
+                                .rate
+                                    input#star5(type='radio' name='rate' value='5' checked='')
+                                    label(for='star5' title='text') 5 stars
+                                    input#star4(type='radio' name='rate' value='4' checked='')
+                                    label(for='star4' title='text') 4 stars
+                                    input#star3(type='radio' name='rate' value='3' checked='')
+                                    label(for='star3' title='text') 3 stars
+                                    input#star2(type='radio' name='rate' value='2')
+                                    label(for='star2' title='text') 2 stars
+                                    input#star1(type='radio' name='rate' value='1')
+                                    label(for='star1' title='text') 1 star
+                                span 3 Reviews
+                            .product-price-discount
+                                span= productId.price+"  VND"
+                                span.line-through $29.00
+                        p=productId.content
+                        .row
+                            .col-md-6
+                                label(for='size') Size
+                                select#size.form-control(name='size')
+                                    option S
+                                    option M
+                                    option L
+                                    option XL
+                            .col-md-6
+                                label(for='color') Color
+                                select#color.form-control(name='color')
+                                    option Blue
+                                    option Green
+                                    option Red
+                        .product-count
+                            label(for='size') Quantity
+                            form.display-flex(action='#')
+                                .qtyminus -
+                                input.qty(type='text' name='quantity' value='1')
+                                .qtyplus +
+                            a.round-black-btn(href='#') Add to Cart
+
+            .product-info-tabs
+                ul#myTab.nav.nav-tabs(role='tablist')
+                    li.nav-item
+                        a#description-tab.nav-link.active(data-toggle='tab' href='#description' role='tab' aria-controls='description' aria-selected='true') Description
+                    li.nav-item
+                        a#review-tab.nav-link(data-toggle='tab' href='#review' role='tab' aria-controls='review' aria-selected='false') Reviews (0)
+                #myTabContent.tab-content
+                    #description.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='description-tab')
+                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+                    #review.tab-pane.fade(role='tabpanel' aria-labelledby='review-tab')
+                        .review-heading REVIEWS
+                        p.mb-20 There are no reviews yet.
+                        form.review-form
+                            .form-group
+                                label Your rating
+                                .reviews-counter
+                                    .rate
+                                        input#star5(type='radio' name='rate' value='5')
+                                        label(for='star5' title='text') 5 stars
+                                        input#star4(type='radio' name='rate' value='4')
+                                        label(for='star4' title='text') 4 stars
+                                        input#star3(type='radio' name='rate' value='3')
+                                        label(for='star3' title='text') 3 stars
+                                        input#star2(type='radio' name='rate' value='2')
+                                        label(for='star2' title='text') 2 stars
+                                        input#star1(type='radio' name='rate' value='1')
+                                        label(for='star1' title='text') 1 star
+                            .form-group
+                                label Your message
+                                textarea.form-control(rows='10')
+                            .row
+                                .col-md-6
+                                    .form-group
+                                        input.form-control(type='text' name='' placeholder='Name*')
+                                .col-md-6
+                                    .form-group
+                                        input.form-control(type='text' name='' placeholder='Email Id*')
+                            button.round-black-btn Submit Review
+
+block scripts 
+    script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='	sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
+    script(src='/js/product-detail.js')

@@ -1,35 +1,51 @@
-<!DOCTYPE html>
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        title Document
-        // Font Awesome
-        link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css', rel='stylesheet')
-        // Google Fonts
-        link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap', rel='stylesheet')
-        // MDB
-        link(href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.2.0/mdb.min.css', rel='stylesheet')
 
+extends ../admin/layout/commom
+
+block content
     body
-        ul
-            // ở đâu
-            each i in product   
-                .card(style='width: 15rem;')
+        a.btn.btn-secondary(href="/createnewproduct") Add New
+    ul
+        each i,index in product 
+
+            .product_table
+                #card_product.card(style='width: 15rem;')
                     img.card-img-top(src=i.image, alt='...')
+                    span.onsale -9%
                     .card-body
                         h5.card-title= i.name 
-                        p.card-text=`${i.price}  `
-                        p.card-text=`${i.content}  `
-                        a.btn.btn-primary(href='#') Go somewhere
-                            
-                //- .card
-                //-     .bg-image.hover-overlay.ripple(data-mdb-ripple-color='light')
-                //-         img.img-fluid(src=i.image, width= "480", height="480" )
-                //-         a(href='#!')
-                //-         .mask(style='background-color: rgba(251, 251, 251, 0.15)')
-                //-     .card-body
-                //-         h5.card-title= `${i.name}  `
-                //-         p.card-text=`${i.price}  `
-                //-         p.card-text=`${i.content}  `
-                //-         a.btn.btn-primary(href='#!') Mua Ngay
-                //-         a(href=`/products/${i._id}`) view detail
+                        p.card-text= "Giá: "+ i.price +"  VND"
+                        p.card-text= i.content.substr(0, 40)
+                            a(href=`/product/${i._id}`) ...Xem thêm 
+                        .card-body-ms5r
+                            button.btn.btn-outline-secondary(type='button' style='margin-right: 10px  ' ) Edit
+                            // Button trigger modal
+                            button.btn.btn-primary(type='button' data-bs-toggle='modal' data-bs-target=`#exampleModal${index +1 }`)
+                                | Delete
+                            .modal(tabindex='-1')
+                                .modal-dialog
+                                    .modal-content
+                                        .modal-header
+                                            h5.modal-title Xóa sản phẩm này ?
+                                            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                                        .modal-body
+                                            | Are you want to Delete :))
+                                        .modal-footer
+                                            form(action=`/productsmanager/${i._id}/delete`, method="post") 
+                                                button.btn.btn-secondary(type='button' data-bs-dismiss='modal') Không xóa nữa. hihi
+                                                button.btn.btn-primary(type='submit')     Delete     
+
+
+
+                    //- .card(style='width: 18rem;')
+                    //-     img.card-img-top(src='...' alt='...')
+                    //-     .card-body
+                    //-         h5.card-title Card title
+                    //-         p.card-text
+                    //-         | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+                    //-     ul.list-group.list-group-flush
+                    //-         li.list-group-item An item
+                    //-         li.list-group-item A second item
+                    //-     .card-body
+                    //-         a.card-link(href='#') Card link
+                    //-         a.card-link(href='#') Another link
+
