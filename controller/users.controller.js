@@ -1,13 +1,49 @@
 const User = require("../model/user.model")
 const Product = require('../model/product.model')
+const Order = require('../model/order.model')
 
 exports.getLogin = function (req, res, next) {
     
     res.render("admin/login")
 }
-exports.getThanhToan = function (req, res, next) {
-    res.render("users/thanhtoan")
+exports.getThanhToan = async function (req, res, next) {
+    const id = req.params.id;
+    const productId = await Product.findById({ _id: id });
+    res.render("users/thanhtoan",{productId})
 }
+exports.postThanhToan = async function (req, res, next) {
+    const errors = [];
+    if (!req.body.userName) {
+        errors.push('Name is required!')
+    }
+    if (!req.body.address) {
+        errors.push('Price is required!')
+    }
+    if (!req.body.phone) {
+        errors.push('Content is required!')
+    }
+
+    if (errors.length) {
+        res.render("users/thanhtoan", {
+            errors: errors,
+            values: req.body
+        });
+        return;
+    }
+    const data = {
+        ...req.body
+    }
+    console.log(data);
+    // try {
+    //     const order = await Order.create(data)
+    //     res.redirect('order-successful')
+
+    // } catch (error) {
+    //     console.log(error);
+    // }
+}
+
+
 exports.index = async function (req, res, next) {
     const product = await Product.find({});
     res.render("index",{product })

@@ -15,19 +15,14 @@ block content
         .col-md-8.mb-4
             // Section: Checkout form
             section.shadow-5.p-4
-                form
+                form(action="" method="post") 
                     // 2 column grid layout with text inputs for the first and last names
                     .row.mb-4
                         .col
                             .form-outline
-                                input#form6Example1.form-control(type='text', style="\
-                                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==');\
-                                background-repeat: no-repeat;\
-                                background-attachment: scroll;\
-                                background-size: 16px 18px;\
-                                background-position: 98% 50%;\
-                                ")
                                 label.form-label(for='form6Example1' style='margin-left: 0px;') Họ Tên
+                                input#form6Example1.form-control(type='text' name ="userName" )
+                                
                                 .form-notch
                                     .form-notch-leading(style='width: 9px;')
                                     .form-notch-middle(style='width: 68.8px;')
@@ -39,8 +34,9 @@ block content
                     // Text input
                     // Text input
                     .form-outline.mb-4
-                        input#form6Example4.form-control(type='text')
                         label.form-label(for='form6Example4' style='margin-left: 0px;') Địa Chỉ
+                        input#form6Example4.form-control(type='text' name ="address")
+                        
                         .form-notch
                             .form-notch-leading(style='width: 9px;')
                             .form-notch-middle(style='width: 55.2px;')
@@ -50,33 +46,25 @@ block content
                             .form-notch-middle(style='width: 55.2px;')
                             .form-notch-trailing
                     // Email input
+
+
                     .form-outline.mb-4
-                        input#form6Example5.form-control(type='email')
-                        label.form-label(for='form6Example5' style='margin-left: 0px;') Tên Sản Phẩm
+                        label.form-label(for='form6Example4' style='margin-left: 0px;') số điện thoại
+                        input#form6Example4.form-control(type='text' name='phone')
+
                         .form-notch
                             .form-notch-leading(style='width: 9px;')
-                            .form-notch-middle(style='width: 40px;')
+                            .form-notch-middle(style='width: 55.2px;')
                             .form-notch-trailing
                         .form-notch
                             .form-notch-leading(style='width: 9px;')
-                            .form-notch-middle(style='width: 40px;')
+                            .form-notch-middle(style='width: 55.2px;')
                             .form-notch-trailing
-                    // Number input
-                    .form-outline.mb-4
-                        input#form6Example6.form-control(type='number')
-                        label.form-label(for='form6Example6' style='margin-left: 0px;') S&#x1ED1; &dstrok;i&#x1EC7;n tho&#x1EA1;i
-                        .form-notch
-                            .form-notch-leading(style='width: 9px;')
-                            .form-notch-middle(style='width: 44.8px;')
-                            .form-notch-trailing
-                        .form-notch
-                            .form-notch-leading(style='width: 9px;')
-                            .form-notch-middle(style='width: 44px;')
-                            .form-notch-trailing
+                    // Email input
+
                     // Message input
                     .form-outline.mb-4
-                        textarea#form6Example7.form-control(rows='4')
-                        label.form-label(for='form6Example7' style='margin-left: 0px;') &Dstrok;&#x1ECB;a ch&#x1EC9; chi ti&#x1EBF;t
+                        input#form6Example7.form-control(rows='4' name= "productId" value= productId._id, style='display:none')
                         .form-notch
                             .form-notch-leading(style='width: 9px;')
                             .form-notch-middle(style='width: 131.2px;')
@@ -85,6 +73,7 @@ block content
                             .form-notch-leading(style='width: 9px;')
                             .form-notch-middle(style='width: 135.2px;')
                             .form-notch-trailing
+
                     // Checkbox
                     .form-check.d-flex.justify-content-center.mb-4
                         input#form6Example8.form-check-input.me-2(type='checkbox' value='' checked='')
@@ -105,14 +94,8 @@ block content
                     .card-body
                         ul
                             li
-                                strong Product 1: 
-                                | $100
-                            li
-                                strong Product 2: 
-                                | $50
-                            li
-                                strong Product 2: 
-                                | $49
+                                strong=productId.name + ":"+ productId.price +"VND"
+                        
                     .card-footer.bg-white.d-flex.justify-content-between.py-3
                         strong Total amount:
                         strong $199

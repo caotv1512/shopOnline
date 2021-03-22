@@ -1,11 +1,10 @@
-const Product = require("../model/product.model")
-const User = require("../model/user.model")
+const Belt = require("../model/belt.model")
 
-exports.getProduct = function (req, res, next) {
-    res.render("products/product")
+exports.getBelt = function (req, res, next) {
+    res.render("products/pelt")
 }
 
-exports.postProduct = async function (req, res, next) {
+exports.postBelt = async function (req, res, next) {
     const errors = [];
     if (!req.body.name) {
         errors.push('Name is required!')
@@ -18,20 +17,20 @@ exports.postProduct = async function (req, res, next) {
     }
  
     if(errors.length){
-        res.render("products/product", {
+        res.render("products/belt", {
             errors: errors,
             values: req.body
         });
         return;
     }
 
-    const {categoryId, name, price, content } = req.body
+    const {name, price, content } = req.body
 
     let avatar = req.file.path
     console.log(avatar);
     avatar = "/"+avatar.split('\\').slice(1).join('/');
     const data = {
-       categoryId, name, price, content, image: avatar
+       name, price, content, avatar: avatar, image1: avatar, image2: avatar, image3: avatar
     }
     try {
         // dung await thi nen cho vao trycath nhe
@@ -44,7 +43,7 @@ exports.postProduct = async function (req, res, next) {
     }
 
 }
-exports.getProductId = async function (req, res, next) {
+exports.getBeltId = async function (req, res, next) {
 
     // const {id} = req.params;
     const id = req.params.id;
@@ -53,13 +52,13 @@ exports.getProductId = async function (req, res, next) {
 
 }
 
-exports.getAllProduct = async function (req, res, next) {
-    const product = await Product.find({});
+exports.getAllBelt = async function (req, res, next) {
+    const product = await Belt.find({});
     res.render("products/all-product", { product })
 }
-exports.deleteProduct = async function (req, res, next) {
+exports.deleteBelt = async function (req, res, next) {
     const id = req.params.id;
-    const deleId = await Product.findById({_id: id});
+    const deleId = await Belt.findById({_id: id});
     console.log(id);
     if(deleId){
         await Product.findByIdAndDelete({ _id: deleId._id })

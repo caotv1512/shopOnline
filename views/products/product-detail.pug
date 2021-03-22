@@ -73,7 +73,10 @@ block content
                                 .qtyminus -
                                 input.qty(type='text' name='quantity' value='1')
                                 .qtyplus +
-                            a.round-black-btn(href='#') Add to Cart
+                            a.round-black-btn(href=`/thanhtoan/${productId._id}`) Add to Cart
+                            //-    .btn_style
+                            //-         button.das__nav__btn(type='button')
+                            //-             a(href=`/thanhtoan/${i._id}` style='color: black;')  MUA NGAY
 
             .product-info-tabs
                 ul#myTab.nav.nav-tabs(role='tablist')

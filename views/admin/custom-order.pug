@@ -1,0 +1,16 @@
+extends ./layout/commom
+
+block content
+    each o in order 
+        .dropdown
+            button#dropdownMenuButton2.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false')
+                li=o.userName
+            ul.dropdown-menu.dropdown-menu-dark(aria-labelledby='dropdownMenuButton2')
+                li
+                    a.dropdown-item.active(href='#')=o.address
+                li
+                    a.dropdown-item(href='#')= o.phone
+                li
+                    a.dropdown-item(href='#')=o.name
+             
+

@@ -6,18 +6,18 @@ block content
             span.title_subtitle L&acirc;m T&agrave;i Store
             span.header_content H&agrave;ng M&#x1EDB;i V&#x1EC1; 
         each i in product   
-     
+        
+            a(href=`/product/${i._id}`)
                 .product_table
-                    a(href=`/product/${i._id}`)
-                        #card_product.card(style='width: 16rem;')
-                            img.card-img-top(src=i.image, alt='...')
-                            span.onsale -9%
-                            .card-body
-                                h5.card-title= i.name 
-                                p.card-text= "Giá: "+ i.price +"  VND"
-                                p.card-text= i.content.substr(0, 40)
-                                a(href=`/product/${i._id}`) ...Xem thêm 
-                                .btn_style
-                                    button.das__nav__btn(type='button')
-                                        a(href='/thanhtoan' style='color: black;')  MUA NGAY
+                    #card_product.card(style='width: 16rem;')
+                        img.card-img-top(src=i.image, alt='...')
+                        span.onsale -9%
+                        .card-body
+                            h5.card-title= i.name 
+                            p.card-text= "Giá: "+ i.price +"  VND"
+                            p.card-text= i.content.substr(0, 40)
+                            a(href=`/product/${i._id}`) ...Xem thêm 
+                            .btn_style
+                                button.das__nav__btn(type='button')
+                                    a(href=`/thanhtoan/${i._id}` style='color: black;')  MUA NGAY
 
